@@ -27,3 +27,17 @@ JOIN departments d ON e.department_id = d.department_id
 JOIN locations l ON d.location_id = l.location_id
 ORDER BY Nombre 
 /*Ejercicio 8*/
+SELECT e.first_name AS "Nombre", e.last_name AS "Apellido", c.country_name AS "Pais", r.region_name AS "Region" 
+FROM employees e JOIN departments d ON e.department_id = d.department_id
+JOIN locations l ON d.location_id = l.location_id
+JOIN countries c ON l.country_id = c.country_id
+JOIN regions r ON c.region_id = r.region_id
+ORDER BY Region, Nombre ASC
+/*Ejercicio 9*/
+SELECT c.country_name AS "Pais", r.region_name AS "Region" 
+FROM countries c JOIN regions r ON c.region_id = r.region_id
+ORDER BY Region DESC
+/*Ejercicio 10*/
+SELECT e.first_name AS "Nombre", e.last_name AS "Apellido", j.job_title AS "Trabajo", j.min_salary AS "Salario_Minimo" 
+FROM employees e JOIN jobs j ON e.job_id = j.job_id
+ORDER BY Salario_Minimo ASC
